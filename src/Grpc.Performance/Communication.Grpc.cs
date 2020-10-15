@@ -39,14 +39,14 @@ namespace Grpc.Performance
         [Benchmark]
         public async Task GrpcGetBigDtoAsync()
         {
-            var collection = await _service.GetBigDtoAsync(CancellationToken.None);
+            var item = await _service.GetBigDtoAsync(CancellationToken.None);
         }
         
         [Benchmark]
         public async Task GrpcGetBigDtoWithoutServiceAsync()
         {
             var service = _channel.CreateGrpcService<IBigDtoService>();
-            var collection = await service.GetBigDtoAsync(CancellationToken.None);
+            var item = await service.GetBigDtoAsync(CancellationToken.None);
         }
         
         [Benchmark]
@@ -55,20 +55,24 @@ namespace Grpc.Performance
             GrpcClientFactory.AllowUnencryptedHttp2 = true;
             var channel = GrpcChannel.ForAddress("http://localhost:5000");
             var service = channel.CreateGrpcService<IBigDtoService>();
-            var collection = await service.GetBigDtoAsync(CancellationToken.None);
+            var item = await service.GetBigDtoAsync(CancellationToken.None);
         }
         
-        // [Benchmark]
-        // public async Task GrpcGetStreamBigDtoStreamAsync()
-        // {
-        //     var list = new List<BigDto>();
-        //     var service = _channel.CreateGrpcService<IBigDtoService>();
-        //     var streamAsync = service.GetBigDtosStreamAsync(new BigDtoQuery(),  CancellationToken.None);
-        //
-        //     await foreach (var bigDto in streamAsync)
-        //     {
-        //         list.Add(bigDto);
-        //     }
-        // }
+        [Benchmark]
+        public async Task GrpcGetBigDto3SeriesAsync()
+        {
+            var item = await _service.GetBigDtoAsync(CancellationToken.None);
+            var item2 = await _service.GetBigDtoAsync(CancellationToken.None);
+            var item3 = await _service.GetBigDtoAsync(CancellationToken.None);
+        }
+        
+        [Benchmark]
+        public async Task GrpcGetBigDto3SeriesWithoutServiceAsync()
+        {
+            var service = _channel.CreateGrpcService<IBigDtoService>();
+            var item = await service.GetBigDtoAsync(CancellationToken.None);
+            var item2 = await service.GetBigDtoAsync(CancellationToken.None);
+            var item3 = await service.GetBigDtoAsync(CancellationToken.None);
+        }
     }
 }

@@ -26,8 +26,8 @@ namespace Grpc.Perfomance.Grpc
             {
                 config.ResponseCompressionLevel = System.IO.Compression.CompressionLevel.Fastest;
                 
-                config.Interceptors.Add<MetricsInterceptor>();
-                config.Interceptors.Add<ExceptionInterceptor>();
+               // config.Interceptors.Add<MetricsInterceptor>();
+               // config.Interceptors.Add<ExceptionInterceptor>();
             });
         }
 

@@ -20,7 +20,12 @@ namespace Grpc.Perfomance.Grpc.Services
         }
 
         public async ValueTask<BigDto> GetBigDtoAsync(CancellationToken cancellationToken)
-            => (await _repository.GetAsync()).First();
+        {
+            var items = await _repository.GetAsync();
+            var item = items.First();
+
+            return item;
+        }
 
         public async ValueTask<ICollection<BigDto>> GetBigDtosAsync(CancellationToken cancellationToken)
             => await _repository.GetAsync();

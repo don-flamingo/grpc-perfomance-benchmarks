@@ -48,6 +48,22 @@ namespace Grpc.Performance
             var item = JsonSerializer.Deserialize<BigDto>(json);
         }
         
+        [Benchmark]
+        public async Task RestGetBigDto3SeriesAsync()
+        {
+            var response = await _httpClient.GetAsync("big/item");
+            var json = await response.Content.ReadAsStringAsync();
+            var item = JsonSerializer.Deserialize<BigDto>(json);
+            
+            response = await _httpClient.GetAsync("big/item");
+            json = await response.Content.ReadAsStringAsync();
+            var item2 = JsonSerializer.Deserialize<BigDto>(json);
+            
+            response = await _httpClient.GetAsync("big/item");
+            json = await response.Content.ReadAsStringAsync();
+            var item3 = JsonSerializer.Deserialize<BigDto>(json);
+        }
+        
         private HttpClient CreateClient()
         {
             var handler = new HttpClientHandler
