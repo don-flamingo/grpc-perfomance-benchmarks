@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{21420F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{6666A1EB-F36C-4888-B939-1E11A6222840}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grpc.Performance", "src\Grpc.Performance\Grpc.Performance.csproj", "{43141AB0-634A-45D6-806A-71085EDEC72B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{0DA134D6-590E-42E9-A605-45C7FB269594}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DA134D6-590E-42E9-A605-45C7FB269594}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DA134D6-590E-42E9-A605-45C7FB269594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43141AB0-634A-45D6-806A-71085EDEC72B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43141AB0-634A-45D6-806A-71085EDEC72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43141AB0-634A-45D6-806A-71085EDEC72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43141AB0-634A-45D6-806A-71085EDEC72B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1DBE9805-5A7A-4A85-A1F8-4C03E640D99E} = {21420FD1-ECFB-47B7-827E-C26D14EADFBD}
