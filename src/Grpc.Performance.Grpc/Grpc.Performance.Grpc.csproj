@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Grpc.Perfomance.Grpc</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
+        <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.0.123" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Grpc.Performance.Contracts\Grpc.Performance.Contracts.csproj" />
+      <ProjectReference Include="..\Grpc.Performance.Persistence\Grpc.Performance.Persistence.csproj" />
+    </ItemGroup>
+
+</Project>

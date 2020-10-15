@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grpc.Performance.Grpc", "src\Grpc.Performance.Grpc\Grpc.Performance.Grpc.csproj", "{59414F96-1A50-4E31-BF70-015107C413CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grpc.Performance.Contracts", "src\Grpc.Performance.Contracts\Grpc.Performance.Contracts.csproj", "{1DBE9805-5A7A-4A85-A1F8-4C03E640D99E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grpc.Performance.Persistence", "src\Grpc.Performance.Persistence\Grpc.Performance.Persistence.csproj", "{0DA134D6-590E-42E9-A605-45C7FB269594}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{21420FD1-ECFB-47B7-827E-C26D14EADFBD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{6666A1EB-F36C-4888-B939-1E11A6222840}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59414F96-1A50-4E31-BF70-015107C413CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59414F96-1A50-4E31-BF70-015107C413CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59414F96-1A50-4E31-BF70-015107C413CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59414F96-1A50-4E31-BF70-015107C413CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DBE9805-5A7A-4A85-A1F8-4C03E640D99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DBE9805-5A7A-4A85-A1F8-4C03E640D99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DBE9805-5A7A-4A85-A1F8-4C03E640D99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DBE9805-5A7A-4A85-A1F8-4C03E640D99E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DA134D6-590E-42E9-A605-45C7FB269594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DA134D6-590E-42E9-A605-45C7FB269594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DA134D6-590E-42E9-A605-45C7FB269594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DA134D6-590E-42E9-A605-45C7FB269594}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1DBE9805-5A7A-4A85-A1F8-4C03E640D99E} = {21420FD1-ECFB-47B7-827E-C26D14EADFBD}
+		{59414F96-1A50-4E31-BF70-015107C413CC} = {6666A1EB-F36C-4888-B939-1E11A6222840}
+		{0DA134D6-590E-42E9-A605-45C7FB269594} = {6666A1EB-F36C-4888-B939-1E11A6222840}
+	EndGlobalSection
+EndGlobal
