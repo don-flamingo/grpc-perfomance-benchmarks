@@ -43,7 +43,7 @@ namespace Grpc.Performance
         public async Task RestGetBigDtoWithoutClientAsync()
         {
             var client = CreateClient();
-            var response = await _httpClient.GetAsync("big/item");
+            var response = await client.GetAsync("big/item");
             var json = await response.Content.ReadAsStringAsync();
             var item = JsonSerializer.Deserialize<BigDto>(json);
         }
