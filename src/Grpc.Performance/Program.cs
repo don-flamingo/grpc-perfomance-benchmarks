@@ -17,6 +17,7 @@ namespace Grpc.Performance
             Console.WriteLine("Hello World!");
             
             BenchmarkRunner.Run<Grpc>();
+            BenchmarkRunner.Run<Rest>();
         }
     }
 }
