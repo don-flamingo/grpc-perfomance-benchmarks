@@ -15,9 +15,8 @@ namespace Grpc.Performance
         static async Task Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            
-            BenchmarkRunner.Run<Grpc>();
-            BenchmarkRunner.Run<Rest>();
+
+            BenchmarkRunner.Run<Communication>();
         }
     }
 }
