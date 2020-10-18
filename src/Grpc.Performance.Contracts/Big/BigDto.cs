@@ -2,7 +2,7 @@ using System;
 using System.Runtime.Serialization;
 using Grpc.Perfomance.Contracts.Medium;
 
-namespace Grpc.Perfomance.Contracts.Big
+namespace Grpc.Performance.Contracts.Big
 {
     [DataContract]
     public class BigDto

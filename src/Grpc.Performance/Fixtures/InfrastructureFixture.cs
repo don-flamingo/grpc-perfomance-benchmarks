@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ using Grpc.Net.Client;
 using Grpc.Performance.Contracts.Big;
 using Grpc.Performance.Grpc.Proto;
 using ProtoBuf.Grpc.Client;
-using BigDto = Grpc.Perfomance.Contracts.Big.BigDto;
+using BigDto = Grpc.Performance.Contracts.Big.BigDto;
 
 namespace Grpc.Performance.Fixtures
 {
@@ -16,7 +17,6 @@ namespace Grpc.Performance.Fixtures
         public GrpcChannel Channel { get; }
         public IBigService CodeFirstService { get; }
         public BigDtoService.BigDtoServiceClient ContractFirstService { get; }
-        
 
         public InfrastructureFixture()
         {
@@ -41,13 +41,47 @@ namespace Grpc.Performance.Fixtures
             };
         }
         
-        public async Task<BigDto> RestGetBigDtoAsync()
+        public async Task<BigDto> RestGetBigAsync()
         {
             var response = await HttpClient.GetAsync("big/item");
             var json = await response.Content.ReadAsStringAsync();
             var item = JsonSerializer.Deserialize<BigDto>(json);
 
             return item;
+        }
+        
+        public async Task<ICollection<BigDto>> RestGetBigCollectionAsync()
+        {
+            var response = await HttpClient.GetAsync("big");
+            var json = await response.Content.ReadAsStringAsync();
+            var item = JsonSerializer.Deserialize<ICollection<BigDto>>(json);
+
+            return item;
+        }
+        
+        
+        public Task RestSendBigAsync(CreateBigCommand command)
+        {
+            var json = JsonSerializer.Serialize(command);
+            var payload = new StringContent(
+                json, 
+                System.Text.Encoding.UTF8, 
+                "application/json"
+            );
+            
+            return HttpClient.PostAsync("big", payload);
+        }
+        
+        public Task RestSendBigEventAsync(CreateBigEventsCommand command)
+        {
+            var json = JsonSerializer.Serialize(command);
+            var payload = new StringContent(
+                json, 
+                System.Text.Encoding.UTF8, 
+                "application/json"
+            );
+            
+            return HttpClient.PostAsync("big/events", payload);
         }
     }
 }

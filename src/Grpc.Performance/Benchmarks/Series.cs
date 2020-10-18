@@ -10,7 +10,7 @@ namespace Grpc.Performance.Benchmarks
     {
         private readonly InfrastructureFixture _infrastructure;
 
-        [Params(10, 25, 100)]
+        [Params(1, 10, 25, 100)]
         public int Count { get; set; }
 
         public Series()
@@ -20,6 +20,7 @@ namespace Grpc.Performance.Benchmarks
 
         
         [Benchmark]
+        [BenchmarkCategory(Categories.Grpc)]
         public async Task GrpcGetDtoSeriesAsync()
         {
             for (var i = 0; i < Count; i++)
@@ -38,11 +39,12 @@ namespace Grpc.Performance.Benchmarks
         }
 
         [Benchmark]
+        [BenchmarkCategory(Categories.Rest)]
         public async Task RestGetDtoSeriesAsync()
         {
             for (var i = 0; i < Count; i++)
             {
-                var task = await _infrastructure.RestGetBigDtoAsync();
+                var task = await _infrastructure.RestGetBigAsync();
             }
         }
     }

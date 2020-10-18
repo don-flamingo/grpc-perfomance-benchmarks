@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace Grpc.Perfomance.Contracts.Big
+namespace Grpc.Performance.Contracts.Big
 {
     [DataContract]
     public class BigDtoQuery

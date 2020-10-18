@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Grpc.Core;
-using Grpc.Perfomance.Contracts.Big;
 using Grpc.Performance.Application;
 using Grpc.Performance.Contracts.Big;
 
@@ -25,6 +24,16 @@ namespace Grpc.Perfomance.Grpc.Services
             var item = items.First();
 
             return item;
+        }
+
+        public Task SendBigCommandAsync(CreateBigCommand command, CancellationToken cancellationToken)
+        {
+            return Task.CompletedTask;
+        }
+
+        public Task SendBigEventsCommandAsync(CreateBigEventsCommand command, CancellationToken cancellationToken)
+        {
+            return Task.CompletedTask;
         }
 
         public async Task<ICollection<BigDto>> GetBigDtosAsync(CancellationToken cancellationToken)

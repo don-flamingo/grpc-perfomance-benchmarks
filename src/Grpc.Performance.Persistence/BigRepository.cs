@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bogus;
-using Grpc.Perfomance.Contracts.Big;
+using Grpc.Performance.Contracts.Big;
 using Grpc.Perfomance.Contracts.Medium;
 
 namespace Grpc.Performance.Application

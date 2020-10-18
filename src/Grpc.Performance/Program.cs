@@ -15,9 +15,11 @@ namespace Grpc.Performance
     {
         static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BenchmarkRunner.Run<Post>();
+            // BenchmarkRunner.Run<Series>();
+            // BenchmarkRunner.Run<Concurrency>();
+            // BenchmarkRunner.Run<Collection>();
 
-            BenchmarkRunner.Run<Series>();
         }
     }
 }

@@ -1,12 +1,8 @@
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
-using Google.Protobuf.WellKnownTypes;
-using Grpc.Net.Client;
-using Grpc.Perfomance.Contracts.Big;
 using Grpc.Performance.Contracts.Big;
 using Grpc.Performance.Fixtures;
 
@@ -24,7 +20,8 @@ namespace Grpc.Performance.Benchmarks
             _infrastructure = new InfrastructureFixture();
         }
 
-      //  [Benchmark]
+        [Benchmark]
+        [BenchmarkCategory(Categories.Grpc)]
         public async Task GrpcCodeFirstGetConcurrencyAsync()
         {
             var tasks = new List<Task<BigDto>>();
@@ -40,7 +37,8 @@ namespace Grpc.Performance.Benchmarks
         
 
         
-   //     [Benchmark]
+        [Benchmark]
+        [BenchmarkCategory(Categories.Rest)]
         public async Task RestGetConcurrencyAsync()
         {
             var tasks = new List<Task>();
