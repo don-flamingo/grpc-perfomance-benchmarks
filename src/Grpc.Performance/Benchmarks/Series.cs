@@ -19,7 +19,7 @@ namespace Grpc.Performance.Benchmarks
         }
 
         
-      //  [Benchmark]
+        [Benchmark]
         public async Task GrpcGetDtoSeriesAsync()
         {
             for (var i = 0; i < Count; i++)
@@ -28,7 +28,7 @@ namespace Grpc.Performance.Benchmarks
             }
         }
         
-        [Benchmark]
+    //    [Benchmark]
         public async Task GrpcContractFirstGetConcurrencyAsync()
         {
             for (var i = 0; i < Count; i++)
@@ -37,7 +37,7 @@ namespace Grpc.Performance.Benchmarks
             }
         }
 
-     //   [Benchmark]
+        [Benchmark]
         public async Task RestGetDtoSeriesAsync()
         {
             for (var i = 0; i < Count; i++)
@@ -45,6 +45,5 @@ namespace Grpc.Performance.Benchmarks
                 var task = await _infrastructure.RestGetBigDtoAsync();
             }
         }
-
     }
 }

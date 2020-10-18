@@ -14,7 +14,7 @@ namespace Grpc.Performance.Fixtures
     {
         public HttpClient HttpClient { get; }
         public GrpcChannel Channel { get; }
-        public IBigDtoService CodeFirstService { get; }
+        public IBigService CodeFirstService { get; }
         public BigDtoService.BigDtoServiceClient ContractFirstService { get; }
         
 
@@ -23,7 +23,7 @@ namespace Grpc.Performance.Fixtures
             GrpcClientFactory.AllowUnencryptedHttp2 = true;
 
             Channel = GrpcChannel.ForAddress("http://localhost:5000");
-            CodeFirstService = Channel.CreateGrpcService<IBigDtoService>();
+            CodeFirstService = Channel.CreateGrpcService<IBigService>();
             ContractFirstService = new BigDtoService.BigDtoServiceClient(Channel);
             HttpClient = CreateClient();
         }
@@ -37,7 +37,7 @@ namespace Grpc.Performance.Fixtures
 
             return new HttpClient(handler)
             {
-                BaseAddress = new Uri("http://localhost:6000/")
+                BaseAddress = new Uri("https://localhost:6001/")
             };
         }
         

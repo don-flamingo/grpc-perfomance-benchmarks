@@ -10,11 +10,11 @@ using Grpc.Performance.Contracts.Big;
 
 namespace Grpc.Perfomance.Grpc.Services
 {
-    public class BigDtoService : IBigDtoService
+    public class BigService : IBigService
     {
-        private readonly IBigEntityDtoRepository _repository;
+        private readonly IBigRepository _repository;
         
-        public BigDtoService(IBigEntityDtoRepository repository)
+        public BigService(IBigRepository repository)
         {
             _repository = repository;
         }

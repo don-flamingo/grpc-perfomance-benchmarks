@@ -7,7 +7,7 @@ using Grpc.Perfomance.Contracts.Big;
 namespace Grpc.Performance.Contracts.Big
 {
     [ServiceContract]
-    public interface IBigDtoService
+    public interface IBigService
     {
         Task<BigDto> GetBigDtoAsync(CancellationToken cancellationToken);
         Task<ICollection<BigDto>> GetBigDtosAsync(CancellationToken cancellationToken);

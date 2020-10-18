@@ -8,17 +8,17 @@ using Grpc.Perfomance.Contracts.Medium;
 
 namespace Grpc.Performance.Application
 {
-    public interface IBigEntityDtoRepository
+    public interface IBigRepository
     {
         IEnumerable<BigDto> Get();
         Task<ICollection<BigDto>> GetAsync();
     }
     
-    public class BigEntityDtoRepository : IBigEntityDtoRepository
+    public class BigRepository : IBigRepository
     {
         private readonly ICollection<BigDto> _database;
         
-        public BigEntityDtoRepository()
+        public BigRepository()
         {
             _database = new Faker<BigDto>()
                 .RuleFor(p => p.Id, Guid.NewGuid())

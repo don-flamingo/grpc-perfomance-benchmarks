@@ -6,7 +6,7 @@ namespace Grpc.Performance.Application
     {
         public static IServiceCollection RegisterPersistence(this IServiceCollection services)
         {
-            return services.AddSingleton<IBigEntityDtoRepository, BigEntityDtoRepository>();
+            return services.AddSingleton<IBigRepository, BigRepository>();
         } 
     }
 }

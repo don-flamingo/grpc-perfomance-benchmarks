@@ -10,9 +10,9 @@ namespace Grpc.Performance.Rest.Controllers
     [Route("big")]
     public class BigDtoController : ControllerBase
     {
-        private IBigEntityDtoRepository _repository;
+        private IBigRepository _repository;
 
-        public BigDtoController(IBigEntityDtoRepository repository)
+        public BigDtoController(IBigRepository repository)
         {
             _repository = repository;
         }

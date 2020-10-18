@@ -43,7 +43,7 @@ namespace Grpc.Perfomance.Grpc
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<BigDtoService>();
+                endpoints.MapGrpcService<BigService>();
             });
             
         }
