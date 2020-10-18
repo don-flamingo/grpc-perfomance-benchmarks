@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "Grpc.Performance.Grpc.Proto";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+package bigdto;
+
+service BigDtoService {
+  rpc GetBigDto (google.protobuf.Empty) returns (BigDto);
+}
+
+message BigDto {
+  string Id = 1;
+  string Text = 2;
+  google.protobuf.Timestamp DateTime = 3;
+  int32 Number = 4;
+  float Float = 5;
+  float Decimal = 6;
+  double Double = 7;
+  int64 Long = 8;
+  MediumDto Medium = 9;
+  string Content = 10;
+}
+
+message MediumDto {
+  string Id = 1;
+  string Text = 2;
+  bytes Bytes = 3;
+  string Paragraph = 4;
+}

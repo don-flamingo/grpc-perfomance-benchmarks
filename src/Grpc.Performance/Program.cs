@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using Grpc.Net.Client;
+using Grpc.Performance.Benchmarks;
 using Grpc.Performance.Contracts.Big;
 using ProtoBuf.Grpc.Client;
 
@@ -16,7 +17,7 @@ namespace Grpc.Performance
         {
             Console.WriteLine("Hello World!");
 
-            BenchmarkRunner.Run<Communication>();
+            BenchmarkRunner.Run<Series>();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Grpc.Perfomance.Grpc.Services
             _repository = repository;
         }
 
-        public async ValueTask<BigDto> GetBigDtoAsync(CancellationToken cancellationToken)
+        public async Task<BigDto> GetBigDtoAsync(CancellationToken cancellationToken)
         {
             var items = await _repository.GetAsync();
             var item = items.First();
@@ -27,7 +27,7 @@ namespace Grpc.Perfomance.Grpc.Services
             return item;
         }
 
-        public async ValueTask<ICollection<BigDto>> GetBigDtosAsync(CancellationToken cancellationToken)
+        public async Task<ICollection<BigDto>> GetBigDtosAsync(CancellationToken cancellationToken)
             => await _repository.GetAsync();
 
         public async IAsyncEnumerable<BigDto> GetBigDtosStreamAsync(BigDtoQuery query,
@@ -39,7 +39,7 @@ namespace Grpc.Perfomance.Grpc.Services
             }
         }
 
-        public ValueTask ThrowExceptionAsync(CancellationToken cancellationToken)
+        public Task ThrowExceptionAsync(CancellationToken cancellationToken)
         {
             throw new Exception("Error");
         }

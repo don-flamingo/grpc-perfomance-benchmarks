@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Grpc.Performance.Grpc.Proto</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+        <Protobuf Include="Protos\bigdto.proto" GrpcServices="Server" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Bogus" Version="31.0.3" />
+        <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
+    </ItemGroup>
+
+</Project>

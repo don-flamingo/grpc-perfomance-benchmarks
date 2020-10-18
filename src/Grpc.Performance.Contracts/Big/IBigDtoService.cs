@@ -9,9 +9,9 @@ namespace Grpc.Performance.Contracts.Big
     [ServiceContract]
     public interface IBigDtoService
     {
-        ValueTask<BigDto> GetBigDtoAsync(CancellationToken cancellationToken);
-        ValueTask<ICollection<BigDto>> GetBigDtosAsync(CancellationToken cancellationToken);
+        Task<BigDto> GetBigDtoAsync(CancellationToken cancellationToken);
+        Task<ICollection<BigDto>> GetBigDtosAsync(CancellationToken cancellationToken);
         IAsyncEnumerable<BigDto> GetBigDtosStreamAsync(BigDtoQuery query, CancellationToken cancellationToken);
-        ValueTask ThrowExceptionAsync(CancellationToken cancellationToken);
+        Task ThrowExceptionAsync(CancellationToken cancellationToken);
     }
 }

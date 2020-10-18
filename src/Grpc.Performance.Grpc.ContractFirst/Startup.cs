@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Grpc.Perfomance.Grpc.Interceptors;
-using Grpc.Perfomance.Grpc.Services;
 using Grpc.Performance.Application;
+using Grpc.Performance.Grpc.Proto.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ProtoBuf.Grpc.Server;
 
-namespace Grpc.Perfomance.Grpc
+namespace Grpc.Performance.Grpc.Proto
 {
     public class Startup
     {
@@ -20,15 +18,9 @@ namespace Grpc.Perfomance.Grpc
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.RegisterPersistence();
-            
-            services.AddCodeFirstGrpc(config =>
-            {
-                config.ResponseCompressionLevel = System.IO.Compression.CompressionLevel.Fastest;
-                
-               // config.Interceptors.Add<MetricsInterceptor>();
-               // config.Interceptors.Add<ExceptionInterceptor>();
-            });
+            services
+                .AddSingleton<IBigEntityDtoRepository, BigEntityDtoRepository>()
+                .AddGrpc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +35,15 @@ namespace Grpc.Perfomance.Grpc
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<BigDtoService>();
+                endpoints.MapGrpcService<GreeterService>();
+                endpoints.MapGrpcService<Services.BigDtoService>();
+
+                endpoints.MapGet("/",
+                    async context =>
+                    {
+                        await context.Response.WriteAsync(
+                            "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
+                    });
             });
         }
     }
