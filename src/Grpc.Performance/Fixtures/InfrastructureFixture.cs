@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Grpc.Net.Client;
+using Grpc.Perfomance.Contracts;
 using Grpc.Performance.Contracts.Big;
 using Grpc.Performance.Grpc.Proto;
 using ProtoBuf.Grpc.Client;
@@ -50,14 +51,6 @@ namespace Grpc.Performance.Fixtures
             var json = await response.Content.ReadAsStringAsync();
             var item = JsonSerializer.Deserialize<BigDto>(json);
             
-            response.IsSuccessStatusCode.Should().BeTrue();
-            item.Should().NotBeNull();
-
-            if (item == null)
-            {
-                throw new Exception();
-            }
-
             return item;
         }
         
@@ -70,6 +63,14 @@ namespace Grpc.Performance.Fixtures
             return item;
         }
         
+        public async Task<PaginationWrapper<BigDto>> RestGetBigPaginatedAsync()
+        {
+            var response = await HttpClient.GetAsync("paginated");
+            var json = await response.Content.ReadAsStringAsync();
+            var item = JsonSerializer.Deserialize<PaginationWrapper<BigDto>>(json);
+
+            return item;
+        }
         
         public Task RestSendBigAsync(CreateBigCommand command)
         {

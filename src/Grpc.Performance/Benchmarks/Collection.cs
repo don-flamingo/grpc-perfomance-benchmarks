@@ -22,10 +22,24 @@ namespace Grpc.Performance.Benchmarks
         }
         
         [Benchmark]
+        [BenchmarkCategory(Categories.Grpc)]
+        public async Task GrpcGetPaginatedBigDtoAsync()
+        {
+            var collection = await _infrastructure.CodeFirstService.GetPaginatedAsync(CancellationToken.None);
+        }
+        
+        [Benchmark]
         [BenchmarkCategory(Categories.Rest)]
         public async Task RestGetCollectionBigDtoAsync()
         {
             var collection = await _infrastructure.RestGetBigCollectionAsync();
+        }
+        
+        [Benchmark]
+        [BenchmarkCategory(Categories.Rest)]
+        public async Task RestGetPaginatedBigDtoAsync()
+        {
+            var collection = await _infrastructure.RestGetBigPaginatedAsync();
         }
     }
 }

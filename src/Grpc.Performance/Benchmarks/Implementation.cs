@@ -78,7 +78,7 @@ namespace Grpc.Performance.Benchmarks
         
         [Benchmark]
         [BenchmarkCategory(Categories.Rest)]
-        public async Task RestWithCreateClient()
+        public async Task RestWithClient()
         {
             for (var i = 0; i < Count; i++)
             {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Grpc.Core;
+using Grpc.Perfomance.Contracts;
 using Grpc.Performance.Application;
 using Grpc.Performance.Contracts.Big;
 
@@ -24,6 +25,17 @@ namespace Grpc.Perfomance.Grpc.Services
             var item = items.First();
 
             return item;
+        }
+
+        public async Task<PaginationWrapper<BigDto>> GetPaginatedAsync(CancellationToken cancellationToken)
+        {
+            var items = await _repository.GetAsync();
+
+            return new PaginationWrapper<BigDto>
+            {
+                Items = items.Take(20).ToList(),
+                TotalSize = items.Count
+            };
         }
 
         public Task SendBigCommandAsync(CreateBigCommand command, CancellationToken cancellationToken)
