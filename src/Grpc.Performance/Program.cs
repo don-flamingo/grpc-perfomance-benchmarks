@@ -15,8 +15,9 @@ namespace Grpc.Performance
     {
         static async Task Main(string[] args)
         {
-            BenchmarkRunner.Run<Post>();
+            //BenchmarkRunner.Run<Post>();
             // BenchmarkRunner.Run<Series>();
+            BenchmarkRunner.Run<Implementation>();
             // BenchmarkRunner.Run<Concurrency>();
             // BenchmarkRunner.Run<Collection>();
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Grpc.Net.Client;
 using Grpc.Performance.Contracts.Big;
 using Grpc.Performance.Grpc.Proto;
@@ -27,8 +28,10 @@ namespace Grpc.Performance.Fixtures
             ContractFirstService = new BigDtoService.BigDtoServiceClient(Channel);
             HttpClient = CreateClient();
         }
-        
-        private HttpClient CreateClient()
+
+        public GrpcChannel CreateChannel() => GrpcChannel.ForAddress("http://localhost:5000");
+
+        public HttpClient CreateClient()
         {
             var handler = new HttpClientHandler
             {
@@ -46,6 +49,14 @@ namespace Grpc.Performance.Fixtures
             var response = await HttpClient.GetAsync("big/item");
             var json = await response.Content.ReadAsStringAsync();
             var item = JsonSerializer.Deserialize<BigDto>(json);
+            
+            response.IsSuccessStatusCode.Should().BeTrue();
+            item.Should().NotBeNull();
+
+            if (item == null)
+            {
+                throw new Exception();
+            }
 
             return item;
         }
