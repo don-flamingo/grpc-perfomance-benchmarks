@@ -5,6 +5,7 @@ using Grpc.Performance.Fixtures;
 
 namespace Grpc.Performance.Benchmarks
 {
+    [RPlotExporter]
     public class Collection
     {
         private readonly InfrastructureFixture _infrastructure;

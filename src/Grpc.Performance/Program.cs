@@ -17,9 +17,9 @@ namespace Grpc.Performance
         {
             //BenchmarkRunner.Run<Post>();
             // BenchmarkRunner.Run<Series>();
-            BenchmarkRunner.Run<Implementation>();
+           // BenchmarkRunner.Run<Implementation>();
             // BenchmarkRunner.Run<Concurrency>();
-            // BenchmarkRunner.Run<Collection>();
+            BenchmarkRunner.Run<Collection>();
 
         }
     }

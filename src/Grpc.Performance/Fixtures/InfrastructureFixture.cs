@@ -65,7 +65,7 @@ namespace Grpc.Performance.Fixtures
         
         public async Task<PaginationWrapper<BigDto>> RestGetBigPaginatedAsync()
         {
-            var response = await HttpClient.GetAsync("paginated");
+            var response = await HttpClient.GetAsync("big/paginated");
             var json = await response.Content.ReadAsStringAsync();
             var item = JsonSerializer.Deserialize<PaginationWrapper<BigDto>>(json);
 
