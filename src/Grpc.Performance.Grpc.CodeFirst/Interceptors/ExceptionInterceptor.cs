@@ -9,7 +9,7 @@ namespace Grpc.Perfomance.Grpc.Interceptors
 {
     public class ExceptionInterceptor : Interceptor
     {
-        private ILogger<ExceptionInterceptor> _logger;
+        private readonly ILogger<ExceptionInterceptor> _logger;
 
         public ExceptionInterceptor(ILogger<ExceptionInterceptor> logger)
         {
