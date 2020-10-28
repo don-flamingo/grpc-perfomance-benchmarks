@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Grpc.Core.Interceptors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
 namespace Grpc.Perfomance.Grpc.Interceptors
@@ -27,6 +28,9 @@ namespace Grpc.Perfomance.Grpc.Interceptors
             catch (Exception exception)
             {
                 _logger.LogError(exception, context.Method);
+
+                var httpContext = context.GetHttpContext();
+                httpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
                 
                 throw new RpcException(new Status(StatusCode.Internal, exception.StackTrace));
             }
